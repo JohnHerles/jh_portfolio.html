@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JH Engineering and Project Management - Portfólio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            padding: 40px 0;
+            margin-bottom: 20px;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #0d47a1;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #0d47a1, #1976d2 );
+            color: white;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: linear-gradient(45deg, 
+                transparent 20%, 
+                rgba(255, 152, 0, 0.1) 25%, 
+                transparent 30%,
+                transparent 70%, 
+                rgba(255, 152, 0, 0.2) 75%, 
+                transparent 80%
+            );
+            background-size: 200% 200%;
+            animation: metallic-shine 8s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes metallic-shine {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icons {
+            display: flex;
+            margin-right: 15px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-icon i {
+            color: #0d47a1;
+            font-size: 20px;
+        }
+        
+        .header-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-subtitle {
+            font-size: 18px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .certification-badge {
+            display: inline-block;
+            background-color: rgba(255, 152, 0, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 152, 0, 0.5);
+            font-size: 14px;
+        }
+        
+        .certification-badge i {
+            margin-right: 8px;
+            color: #ff9800;
+        }
+        
+        /* Sobre */
+        .about {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .about-img img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .certification-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .certification-box h3 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .certification-box h3::before {
+            content: '🎓';
+            margin-right: 10px;
+        }
+        
+        /* Serviços */
+        .services {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .service-icon i {
+            font-size: 25px;
+            color: white;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        /* Indústrias */
+        .industries {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .industry-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .industry-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .industry-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .industry-icon i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        .industry-companies {
+            margin-top: 15px;
+        }
+        
+        .company-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .company-item:last-child {
+            border-bottom: none;
+        }
+        
+        .company-item::before {
+            content: '•';
+            color: #0d47a1;
+            margin-right: 8px;
+        }
+        
+        /* Contato */
+        .contact {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        
+        .contact-icon i {
+            font-size: 25px;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 28px;
+            }
+            
+            .header-subtitle {
+                font-size: 16px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-icons">
+                        <div class="logo-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="logo-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="logo-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="header-title">JH Engineering</h1>
+                <p class="header-subtitle">Soluções de Engenharia e Gestão de Projetos</p>
+                <div class="certification-badge">
+                    <i class="fas fa-award"></i> Harvard Project Management Certified
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sobre -->
+        <section class="about">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://ueopdtrx.manus.space/images/profile.jpg" alt="John Herles - JH Engineering">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre a JH Engineering</h2>
+                    <p>A JH Engineering and Project Management é uma consultoria especializada em desenvolvimento de negócios, oferecendo soluções personalizadas para empresas de diversos setores. Com uma abordagem estratégica e inovadora, ajudamos nossos clientes a alcançarem seus objetivos de crescimento, eficiência operacional e expansão de mercado.</p>
+                    
+                    <div class="certification-box">
+                        <h3>Certificação Harvard em Project Management</h3>
+                        <p>Nossa equipe é liderada por profissionais certificados pela Universidade de Harvard em Gestão de Projetos (2024 ), garantindo a aplicação das melhores práticas e metodologias internacionais em todos os nossos serviços.</p>
+                    </div>
+                    
+                    <p>Com experiência em setores como mineração, petroquímica, siderurgia, agronegócio, celulose e comércio, oferecemos uma visão abrangente e soluções adaptadas às necessidades específicas de cada cliente, combinando conhecimento técnico com as mais recentes inovações tecnológicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section class="services">
+            <h2>Nossos Serviços</h2>
+            <p>Oferecemos uma gama completa de serviços de consultoria em desenvolvimento de negócios, com foco em resultados mensuráveis e sustentáveis, potencializados por tecnologias de Inteligência Artificial para maior agilidade e precisão.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <span class="ai-badge">Potencializado por IA</span>
+                    <h3>Mobilização de Negócios</h3>
+                    <p>Estruturação e implementação de novos negócios ou contratos, com planejamento estratégico e operacional para garantir um início eficiente e bem-sucedido.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <span class="ai-badge">Potencializado por IA</span>
+                    <h3>Organização Financeira</h3>
+                    <p>Estruturação e otimização de processos financeiros, com foco em controle de custos, gestão de fluxo de caixa e maximização de resultados.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <span class="ai-badge">Potencializado por IA</span>
+                    <h3>Planejamento Financeiro</h3>
+                    <p>Desenvolvimento de planos financeiros estratégicos, com projeções, análise de investimentos e estratégias para crescimento sustentável.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <span class="ai-badge">Potencializado por IA</span>
+                    <h3>Consultoria Empresarial</h3>
+                    <p>Assessoria estratégica para tomada de decisões, resolução de problemas complexos e identificação de oportunidades de crescimento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indústrias -->
+        <section class="industries">
+            <h2>Indústrias Atendidas</h2>
+            <p>Temos experiência em diversos setores, oferecendo soluções personalizadas para cada segmento.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Mineração</h3>
+                    </div>
+                    <p>Soluções especializadas para o setor de mineração, com foco em eficiência operacional e otimização de processos.</p>
+                    <div class="industry-companies">
+                        <div class="company-item">Vale do Rio Doce</div>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Petroquímica</h3>
+                    </div>
+                    <p>Consultoria especializada em gestão de projetos e implementação de novas tecnologias no setor petroquímico.</p>
+                    <div class="industry-companies">
+                        <div class="company-item">Dow Química Aratu</div>
+                        <div class="company-item">Dow Ilha de Matarandiba</div>
+                        <div class="company-item">Unigel Candeias</div>
+                        <div class="company-item">Petrobras REDUC</div>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Siderurgia</h3>
+                    </div>
+                    <p>Soluções para aumentar a produtividade, reduzir custos e melhorar a qualidade dos produtos no setor siderúrgico.</p>
+                    <div class="industry-companies">
+                        <div class="company-item">ArcelorMittal Tubarão</div>
+                        <div class="company-item">Usiminas MG</div>
+                        <div class="company-item">Aperan</div>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-header">
+                        <div class="industry-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3>Agronegócio</h3>
+                    </div>
+                    <p>Consultoria para otimização de processos e implementação de novas tecnologias no agronegócio.</p>
+                    <div class="industry-companies">
+                        <div class="company-item">SLC Agrícola</div>
+                        <div class="company-item">Kepler Weber</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section class="contact">
+            <h2>Entre em Contato</h2>
+            <p>Estamos prontos para ajudar sua empresa a alcançar novos patamares de sucesso.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>E-mail</h3>
+                    <p>jhengineeringprojects@hotmail.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telefone</h3>
+                    <p>+55 71 99913-8831</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Endereço</h3>
+                    <p>Rua Doutor Francisco Antonio de Almeida, 244, Praia de Carapebus, Serra - ES</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JH Engineering and Project Management. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
